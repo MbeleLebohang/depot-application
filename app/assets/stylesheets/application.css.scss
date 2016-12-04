@@ -48,6 +48,11 @@
     width: 13em;
     background: #141;
 
+    .time {
+      color: #bfb;
+      padding:0;
+    }
+
     ul {
       padding: 0;
       li {
@@ -58,5 +63,7 @@
         }
       }
     }
+
+
   }
 }
