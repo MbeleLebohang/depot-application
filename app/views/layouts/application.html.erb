@@ -4,14 +4,14 @@
     <title>Depot</title>
     <%= csrf_meta_tags %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body class= <%= controller_name %>>
     <div id="banner">
       <%= image_tag 'logo.png' %>
-      <%= @page_title || "Pragmatic Bookshelf" %>
+      <%= @page_title || 'Pragmatic Bookshelf' %>
     </div>
 
     <div id="columns">
