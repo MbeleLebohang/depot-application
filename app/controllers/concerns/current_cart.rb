@@ -1,5 +1,5 @@
 module CurrentCart
-  extend ActiveSupport::concerns
+  extend ActiveSupport::Concern
 
   private
     def set_cart
