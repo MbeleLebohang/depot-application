@@ -12,6 +12,10 @@
     <div id="banner">
       <%= image_tag 'logo.png' %>
       <%= @page_title || 'Pragmatic Bookshelf' %>
+      <%if controller_name == 'store' and @counter > 5%>
+          <span id="count"><%= pluralize( @counter, 'visit') %></span>
+      <% end %>
+
     </div>
 
     <div id="columns">
@@ -28,6 +32,8 @@
           <li><a href="http://www..../news">News</a></li>
           <li><a href="http://www..../contact">Contact</a></li>
         </ul>
+
+
 
       </div>
 

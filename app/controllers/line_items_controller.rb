@@ -1,5 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
+  include CurrentStore
   # Lets find the cart for the current session, create one if none exist
   # This says that the method set_cart should be invoked only before the create() action
   before_action :set_cart, only: [:create]
@@ -28,9 +29,11 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-    # build a new line item relationship between the product and the cart
-    product = Product.find(params[:product_id])
-    @line_item = @cart.line_items.build(product: product)
+    # Reset the counter for this session
+    session[:counter] = 0
+
+    product = Product.find(params[:product_id]) # Get the product of this session
+    @line_item = @cart.line_items.build(product: product) # Declare a lineItem between the cart and this product
 
     respond_to do |format|
       if @line_item.save
@@ -77,4 +80,5 @@ class LineItemsController < ApplicationController
     def line_item_params
       params.require(:line_item).permit(:product_id, :cart_id)
     end
+
 end
