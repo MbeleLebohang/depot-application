@@ -33,7 +33,8 @@ class LineItemsController < ApplicationController
     session[:counter] = 0
 
     product = Product.find(params[:product_id]) # Get the product of this session
-    @line_item = @cart.line_items.build(product: product) # Declare a lineItem between the cart and this product
+    #@line_item = @cart.line_items.build(product: product) # Declare a lineItem between the cart and this product
+    @line_item = @cart.add_product(product.id)
 
     respond_to do |format|
       if @line_item.save
